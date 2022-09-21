@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+        <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+        <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+        <OutputType>Exe</OutputType>
+        <RootNamespace>StudyHelper</RootNamespace>
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnableDefaultCssItems>false</EnableDefaultCssItems>
+
+        <!-- Display name -->
+        <ApplicationTitle>StudyHelper</ApplicationTitle>
+
+        <!-- App Identifier -->
+        <ApplicationId>com.companyname.studyhelper</ApplicationId>
+        <ApplicationIdGuid>1D1D2C56-1C49-44F5-838B-3E3BA5366229</ApplicationIdGuid>
+
+        <!-- Versions -->
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationVersion>1</ApplicationVersion>
+
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- App Icon -->
+        <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+        <!-- Splash Screen -->
+        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+        <!-- Images -->
+        <MauiImage Include="Resources\Images\*" />
+        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+        <!-- Custom Fonts -->
+        <MauiFont Include="Resources\Fonts\*" />
+
+        <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Images\a71.png" />
+      <None Remove="Resources\Images\a72.png" />
+      <None Remove="Resources\Images\a73.png" />
+      <None Remove="Resources\Images\a75.png" />
+      <None Remove="Resources\Images\a76.png" />
+      <None Remove="Resources\Images\a82.png" />
+      <None Remove="Resources\Images\a98.png" />
+      <None Remove="Resources\Images\blank.png" />
+      <None Remove="Resources\Images\Dizela_cikls.png" />
+      <None Remove="Resources\Images\Gazu_turbinu_cikls.png" />
+      <None Remove="Resources\Images\Idealais_saldesanas_iekartas_cikls.png" />
+      <None Remove="Resources\Images\Karno_cikls.png" />
+      <None Remove="Resources\Images\kompresora_cikls.png" />
+      <None Remove="Resources\Images\Oto_cikls.png" />
+      <None Remove="Resources\Images\Saldesanas_iekartas_gazes_cikla_shema.png" />
+      <None Remove="Resources\Images\Saldesanas_iekartas_gazes_cikls.png" />
+      <None Remove="Resources\Images\Saldesanas_iekartas_tvaika_cikla_shema.png" />
+      <None Remove="Resources\Images\Saldesanas_iekartas_tvaika_cikls.png" />
+      <None Remove="Resources\Images\Siltuma_sukna_shema.png" />
+      <None Remove="Resources\Images\Temperaturas_sadalijums_caur_vienu_plaksni.png" />
+      <None Remove="Resources\Images\Tvaiku_iekartas_cikls_ar_atkartotu_parkarsesanu.png" />
+      <None Remove="Resources\Images\Tvaiku_iekartas_pamatcikla_shema.png" />
+      <None Remove="Resources\Images\Tvaiku_iekartas_pamatcikls.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiImage Include="Data\Siltums1Resources\a71.png" />
+      <MauiImage Include="Data\Siltums1Resources\a72.png" />
+      <MauiImage Include="Data\Siltums1Resources\a73.png" />
+      <MauiImage Include="Data\Siltums1Resources\a75.png" />
+      <MauiImage Include="Data\Siltums1Resources\a76.png" />
+      <MauiImage Include="Data\Siltums1Resources\a82.png" />
+      <MauiImage Include="Data\Siltums1Resources\a98.png" />
+      <MauiImage Include="Data\Siltums1Resources\blank.png" />
+      <MauiImage Include="Data\Siltums1Resources\dizela_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\gazu_turbinu_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\idealais_saldesanas_iekartas_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\karno_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\kompresora_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\oto_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\saldesanas_iekartas_gazes_cikla_shema.png" />
+      <MauiImage Include="Data\Siltums1Resources\saldesanas_iekartas_gazes_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\saldesanas_iekartas_tvaika_cikla_shema.png" />
+      <MauiImage Include="Data\Siltums1Resources\saldesanas_iekartas_tvaika_cikls.png" />
+      <MauiImage Include="Data\Siltums1Resources\siltuma_sukna_shema.png" />
+      <MauiImage Include="Data\Siltums1Resources\temperaturas_sadalijums_caur_vienu_plaksni.png" />
+      <MauiImage Include="Data\Siltums1Resources\tvaiku_iekartas_cikls_ar_atkartotu_parkarsesanu.png" />
+      <MauiImage Include="Data\Siltums1Resources\tvaiku_iekartas_pamatcikla_shema.png" />
+      <MauiImage Include="Data\Siltums1Resources\tvaiku_iekartas_pamatcikls.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Data\Siltums1Resources\Siltums1Res.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Siltums1Res.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Data\Siltums1Resources\Siltums1Res.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Siltums1Res.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+</Project>

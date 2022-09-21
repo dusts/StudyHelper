@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<QuestionAndAnswerControl QuestionsAndAnswers="@GetQuestionsAndAnswers()" />
+
+@code {
+    private List<QuestionAndAnswerModel> GetQuestionsAndAnswers()
+    {
+        return Data.Siltums1_HardcodedData.GetQnAList();
+    }
+}

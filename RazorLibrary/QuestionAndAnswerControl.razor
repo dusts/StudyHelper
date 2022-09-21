@@ -1,0 +1,24 @@
+﻿<ul>
+    @foreach (var item in QuestionsAndAnswers)
+    {
+        <li>
+            <span>@item.QuestionId</span>
+            <span>@item.Question</span>
+            @if (!item.Show)
+            {
+                <span>@item.Answer</span>
+                @if (item.AnswerImage > 0)
+                {
+                    <span>@item.AnswerImage</span>
+                }
+            }
+            <span>@item.Points</span>
+            <button class="btn btn-sm ms-3" @onclick="() => item.Show = !item.Show"> "@(item.Show ? "Hide" : "Show")" </button>
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public List<QuestionAndAnswerModel> QuestionsAndAnswers { get; set; } = new List<QuestionAndAnswerModel>();
+}

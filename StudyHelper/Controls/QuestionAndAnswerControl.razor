@@ -1,0 +1,21 @@
+﻿<ul>
+    @foreach (var item in QuestionsAndAnswers)
+    {
+        <li>
+            <div>@item.QuestionId</div>
+            <div>@((MarkupString)@item.Question)</div>
+            @if (item.Show)
+            {
+                <div>@((MarkupString)@item.Answer)</div>
+                <div><img src="data:image/png;base64, @(Convert.ToBase64String(item.AnswerImage))" /></div>
+            }
+            <div>@item.Points</div>
+            <button class="btn btn-sm ms-3" @onclick="() => item.Show = !item.Show"> "@(item.Show ? "Hide" : "Show")" </button>
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public List<QuestionAndAnswerModel> QuestionsAndAnswers { get; set; } = new List<QuestionAndAnswerModel>();
+}
